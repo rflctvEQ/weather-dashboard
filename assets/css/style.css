@@ -1,0 +1,21 @@
+:root {
+    --dark-gray: #4e4d50;
+    --light-gray: #ececec;
+    --light-purple: #7750f8;
+    --medium-purple: #7510F7;
+    --darkest-purple: #291f33;
+    --tan: #b1a296;
+    --twitch-purple: #6441a4;
+    --divider-gray: rgb(110, 110, 110);
+    --past-gray:  #99979c;
+}
+
+::selection {
+    background-color: var(--darkest-purple);
+    color: var(--tan);
+}
+
+body {
+    background-color: var(--dark-gray);
+    color: var(--light-gray);
+}
