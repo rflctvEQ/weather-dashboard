@@ -8,43 +8,68 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
+    <header class="container-fluid">
         <h1>Weather Dashboard</h1>
         <p>Search for a city to see its current and future weather!</p>
     </header>
     <!-- Here's where the user will be able to search for a city or select from previous searches -->
-    <main class="container w-100">
+    <main class="container row">
         <!-- Here's where the user will be able to search for a city or select from previous searches -->
-        <aside class="col-4 search-section">
+        <aside class="col-3 search-section">
             <div class="input-group">
                 <div class="form-outline">
-                <input type="search" id="form1" class="form-control" />
-                <label class="form-label" for="form1">Search</label>
+                  <input type="search" id="form1" class="form-control" placeholder="Search a city..." />
                 </div>
-                <button type="button" class="btn btn-primary">
-                <i class="fas fa-search"></i>
+                <button type="button" id="searchBtn" class="btn btn-primary">
+                  <i class="fas fa-search"></i>
                 </button>
             </div>
-            <section class="recent-searches"></section>
+            <form class="history"></form>
         </aside>
         <!-- Here's where the user will see their search results -->
-        <section class="col-8">
-            <section class="curren-section">
+        <section class="col-9 search-results">
+            <section class="container current-section">
                 <h3 class="city-name">
                     <span class="date"></span>
                 </h3>
-                <p>Temperature: <span class="current-temp"></span></p>
-                <p>Humidity: <span class="current-hum"></span></p>
-                <p>Wind Speed: <span class="current-wind"></span></p>
-                <p>UV Index: <span class="current-uv"></span></p>
+                <p class="current-temp"></p>
+                <p class="current-hum"></p>
+                <p class="current-wind"></p>
+                <p class="current-uv"></p>
             </section>
-            <section class="future-section">
-                <h3>5-Day Forecast:</h3>
-                <div class="day-one"></div>
-                <div class="day-two"></div>
-                <div class="day-three"></div>
-                <div class="day-four"></div>
-                <div class="day-five"></div>
+            <section class="forecast-section container row">
+                <div class="container row">
+                    <div class="forecast col-md-4 col-lg-2">
+                        <h4 class="date1"></h4>
+                        <img class="icon1">
+                        <p class="temp1"></p>
+                        <p class="hum1"></p>
+                    </div>
+                    <div class="forecast col-md-4 col-lg-2">
+                        <h4 class="date2"></h4>
+                        <img class="icon2">
+                        <p class="temp2"></p>
+                        <p class="hum2"></p>
+                    </div>
+                    <div class="forecast col-md-4 col-lg-2">
+                        <h4 class="date3"></h4>
+                        <img class="icon3">
+                        <p class="temp3"></p>
+                        <p class="hum3"></p>
+                    </div>
+                    <div class="forecast col-md-4 col-lg-2">
+                        <h4 class="date4"></h4>
+                        <img class="icon4">
+                        <p class="temp4"></p>
+                        <p class="hum4"></p>
+                    </div>
+                    <div class="forecast col-md-4 col-lg-2">
+                        <h4 class="date5"></h4>
+                        <img class="icon5">
+                        <p class="temp5"></p>
+                        <p class="hum5"></p>
+                    </div>
+                </div>
             </section>
         </section>
     </main>
@@ -52,6 +77,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/147b70c93c.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
