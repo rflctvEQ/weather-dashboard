@@ -39,7 +39,7 @@ function weather(cityName) {
         // in case the search results in 404, prompt user to check spelling and try again
         .then(function (response){
             if (response.status === 404) {
-                alert("Whoops! Looks like we didn't recognize that ciy. Please check your spelling and try again.")
+                alert("Whoops! Looks like we didn't recognize that city. Please check your spelling and try again.")
             } else {
                 return response;
             }
@@ -48,6 +48,7 @@ function weather(cityName) {
         .then(response => response.json())
         .then(function (weather) {
 
+            // this locally stores the city name the user searched only if it's not already stored and renders it to the page
             if (historyStored.includes(weather.name)) {
 
             } else if (weather.name == undefined || weather.name == null){
@@ -58,11 +59,10 @@ function weather(cityName) {
                 history.prepend("<input type=\"text\" readonly=\"true\" class=\"recent-search\" value=\"" + weather.name + "\"></input>");
             };
 
-            
-            
-
+            // this is the url for the icon associated with the searched city's current weather 
             let iconUrl = "http://openweathermap.org/img/wn/" + weather.weather[0].icon + "@2x.png";
 
+            // this sets and renders current weather information
             $(".city-name").text(weather.name);
             $(".city-name").append(" " + dayjs().format("MM/DD/YY"));
             $(".city-name").append(" " + "<img src=" + iconUrl + " alt=\"weather icon\">")
@@ -70,6 +70,7 @@ function weather(cityName) {
             $(".current-hum").text("Humidity: " + weather.main.humidity + "%");
             $(".current-wind").text("Wind speed: " + weather.wind.speed + " mph");
 
+            // adds class for styling
             $(".current-section").addClass("current-class");
 
             // this will be used to fetch uv index information and forecast information
@@ -110,4 +111,3 @@ function weather(cityName) {
                 });
         });
 };
-
