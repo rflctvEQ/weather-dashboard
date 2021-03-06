@@ -9,25 +9,25 @@
 </head>
 <body>
     <header class="container-fluid">
-        <h1>Weather Dashboard</h1>
+        <h1>WEATHER DASHBOARD</h1>
         <p>Search for a city to see its current and future weather!</p>
     </header>
     <!-- Here's where the user will be able to search for a city or select from previous searches -->
     <main class="container row">
         <!-- Here's where the user will be able to search for a city or select from previous searches -->
-        <aside class="col-3 search-section">
+        <aside class="col-lg-2 col-xl-2 search-section">
             <div class="input-group">
-                <div class="form-outline">
+                <div class="form-outline w-100">
                   <input type="search" id="form1" class="form-control" placeholder="Search a city..." />
                 </div>
-                <button type="button" id="searchBtn" class="btn btn-primary">
+                <button type="button" id="searchBtn" class="w-100 btn">
                   <i class="fas fa-search"></i>
                 </button>
             </div>
             <form class="history"></form>
         </aside>
         <!-- Here's where the user will see their search results -->
-        <section class="col-9 search-results">
+        <section class="col-lg-10 col-xl-10 search-results">
             <section class="container current-section">
                 <h3 class="city-name">
                     <span class="date"></span>
@@ -41,31 +41,41 @@
                 <div class="container row">
                     <div class="forecast col-md-4 col-lg-2">
                         <h4 class="date1"></h4>
-                        <img class="icon1">
+                        <div class="icon-center">
+                            <img class="icon1">
+                        </div>
                         <p class="temp1"></p>
                         <p class="hum1"></p>
                     </div>
                     <div class="forecast col-md-4 col-lg-2">
                         <h4 class="date2"></h4>
-                        <img class="icon2">
+                        <div class="icon-center">
+                            <img class="icon2">
+                        </div>
                         <p class="temp2"></p>
                         <p class="hum2"></p>
                     </div>
                     <div class="forecast col-md-4 col-lg-2">
                         <h4 class="date3"></h4>
-                        <img class="icon3">
+                        <div class="icon-center">
+                            <img class="icon3">
+                        </div>
                         <p class="temp3"></p>
                         <p class="hum3"></p>
                     </div>
                     <div class="forecast col-md-4 col-lg-2">
                         <h4 class="date4"></h4>
-                        <img class="icon4">
+                        <div class="icon-center">
+                            <img class="icon4">
+                        </div>
                         <p class="temp4"></p>
                         <p class="hum4"></p>
                     </div>
                     <div class="forecast col-md-4 col-lg-2">
                         <h4 class="date5"></h4>
-                        <img class="icon5">
+                        <div class="icon-center">
+                            <img class="icon5">
+                        </div>
                         <p class="temp5"></p>
                         <p class="hum5"></p>
                     </div>

@@ -1,16 +1,36 @@
-let searchInput = $("#form1");
 let apiKey = "e8591343789ccc13a905593249f914a3";
+let searchInput = $("#form1");
+let historyStored = JSON.parse(localStorage.getItem("history-names")) || [];
+let history = $(".history");
 
 
-// on click for search bar 
+// click() binding for search bar 
 $("#searchBtn").click(function() {
     let cityName = searchInput.val();
-    weather(cityName);
+    if (!cityName) {
+        
+    } else {
+        weather(cityName);
+    };
 });
+
+// renders user's recent searches to .history
+function renderHistory() {
+    for (let i=0; i<historyStored.length; i++) {
+        history.prepend("<input type=\"text\" readonly=\"true\" class=\"recent-search\" value=\"" + historyStored[i] + "\"></input>");
+    }
+};
+renderHistory();
+
+
+// delegated on() binding for elements generated during a session
+history.on("click", ".recent-search", function(){
+    weather($(this)[0].value);
+})
+
 
 // fetches weather data and displays it on the page
 function weather(cityName) {
-
     // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
     let apiUrl1 = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + apiKey;
 
@@ -27,14 +47,19 @@ function weather(cityName) {
         // if there's no 404... 
         .then(response => response.json())
         .then(function (weather) {
-            let recentSearch = $(".recent-search").val();
-            if (recentSearch == weather.name) {
-                // do nothing, because this is already a saved 
+
+            if (historyStored.includes(weather.name)) {
+
+            } else if (weather.name == undefined || weather.name == null){
+
             } else {
-                //TODO: save to local storage
+                historyStored.push(weather.name);
+                localStorage.setItem("history-names", JSON.stringify(historyStored));
+                history.prepend("<input type=\"text\" readonly=\"true\" class=\"recent-search\" value=\"" + weather.name + "\"></input>");
+            };
+
             
-                $(".history").append("<input type=\"text\" readonly=\"true\" class=\"recent-search\" value=\"" + weather.name + "\"></input>");
-            }
+            
 
             let iconUrl = "http://openweathermap.org/img/wn/" + weather.weather[0].icon + "@2x.png";
 
@@ -49,7 +74,6 @@ function weather(cityName) {
 
             // this will be used to fetch uv index information and forecast information
             let apiUrl2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + weather.coord.lat + "&lon=" + weather.coord.lon + "&units=imperial&appid=" + apiKey;
-            console.log(weather);
             fetch(apiUrl2)
                 .then(response => response.json())
                 .then(function (onecall) {
@@ -87,7 +111,3 @@ function weather(cityName) {
         });
 };
 
-function renderHistory() {
-
-};
-renderHistory();
