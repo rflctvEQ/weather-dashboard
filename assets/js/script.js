@@ -88,10 +88,10 @@ function weather(cityName) {
                         $(".current-uv").append("<span class=\"uv-high\">" + onecall.current.uvi + "</span>");
                     }
                     // creates forecast heading
-                    if ($("#forecast-heading").text() === "5-Day Forecast:") {
+                    if ($("#forecast-heading").text() === "5-Day Forecast") {
                         // empty function because the heading has already been rendered 
                     } else {
-                        $(".forecast-section").prepend("<h3 id=\"forecast-heading\">5-Day Forecast:</h3>");
+                        $(".forecast-section").prepend("<h3 id=\"forecast-heading\">5-Day Forecast</h3>");
                     };
 
                     // activates styling for forecast cards

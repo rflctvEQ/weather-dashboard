@@ -106,6 +106,14 @@ h1 {
 }
 
 @media screen and (max-width: 991px) {
+    .row {
+        justify-content: center;
+        width: 100%;
+        margin-left: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     aside {
         width: 100%;
         margin-right: auto;
@@ -120,5 +128,37 @@ h1 {
         border: none;
         padding-bottom: 15px;
         border-bottom: 2px solid var(--divider-gray);
+    }
+
+    .current-section {
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .current-class {
+        margin-left: 0;
+    }
+
+    .city-name {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .city-name img {
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .forecast-section {
+        justify-content: center;
+    }
+
+    #forecast-heading {
+        text-align: center;
+    }
+
+    .forecast-card {
+        text-align: center;
     }
 }
